@@ -31,7 +31,6 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 	
 	void OnEnable()
 	{
-
 		StartCoroutine(SampleRoutine());
 	}
 	
@@ -84,20 +83,21 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 		bachground.texture = camTexture;
 
 		camAvailable = true;
+		
+		Debug.Log("Front camera set");
 	}
 	
-	private void Update () {
+	private void Update () 
+	{
 		if (!camAvailable)
 		{
 			return;
 		}
 
 		float ration = (float) camTexture.width / (float) camTexture.height;
-
 		fit.aspectRatio = ration;
-
 		float scaleY = camTexture.videoVerticallyMirrored ? -1f : 1f;
-
+		
 		bachground.rectTransform.localScale = new Vector3(1f, scaleY, 1f);
 
 		int orient = -camTexture.videoRotationAngle;
