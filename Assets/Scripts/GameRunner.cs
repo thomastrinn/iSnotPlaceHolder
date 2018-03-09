@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameRunner : MonoBehaviour {
 
 	public UnityEngine.UI.Image imageComponent;
-	public AudioSource audioSource;
+	public AudioSource musicSource;
+	public AudioSource wrongAnswerSource;
+	public AudioClip wrongAnswerClip;
 
 	string[] emotions = {"joy", "fear", "disgust", "sadness", "anger", "surprise"};
 
@@ -40,14 +42,14 @@ public class GameRunner : MonoBehaviour {
 	void playSound(string emotion) {
 		 AudioClip clip = Resources.Load<AudioClip>("Game/QuestionSounds/" + emotion + "1");
 		 Debug.Log(clip);
-		 audioSource.PlayOneShot(clip);
+		 musicSource.PlayOneShot(clip);
 	}
 
 	public void answer(string emotion) {
 		if (emotion == GameVariables.currentEmotion) {
 			SceneManager.LoadScene("JatekFelismeres", LoadSceneMode.Single);
 		} else {
-			Debug.Log("NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEM");
+			wrongAnswerSource.PlayOneShot(wrongAnswerClip);
 		}
 	}
 
