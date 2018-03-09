@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &38439503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -115, y: 96}
+  m_AnchoredPosition: {x: 103, y: -74}
   m_SizeDelta: {x: 600, y: 421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941160494
@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8c3c9e0d95d49ca85dd2490cdc9020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winText: {fileID: 38439502}
   imageComponent: {fileID: 1107096253}
   joySprite: {fileID: 21300000, guid: d8d44335c91c441d48cd1bb2af3178ae, type: 3}
   fearSprite: {fileID: 21300000, guid: 37580ff46616544a2b047933ffbeccc2, type: 3}
@@ -581,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionValue: {fileID: 1637457239}
-  winText: {fileID: 0}
+  winText: {fileID: 38439502}
 --- !u!1 &1508978710
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +868,7 @@ RectTransform:
   m_GameObject: {fileID: 2084311041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.395, y: 1.395, z: 1.395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1370041576}
   m_RootOrder: 0
