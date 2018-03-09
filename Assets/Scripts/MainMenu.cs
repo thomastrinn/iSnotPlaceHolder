@@ -18,4 +18,12 @@ public class MainMenu : MonoBehaviour {
 	public void OpenAlapScene() {
 		SceneManager.LoadScene("Alap", LoadSceneMode.Single);
 	}
+
+	public void OpenHangulatkeltoScene() {
+		SceneManager.LoadScene("Hangulatkelto", LoadSceneMode.Single);
+	}
+
+	public void OpenJatekScene() {
+		SceneManager.LoadScene("Jatek", LoadSceneMode.Single);
+	}
 }
