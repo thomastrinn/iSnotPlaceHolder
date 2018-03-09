@@ -8,9 +8,8 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 {
 	private bool camAvailable;
 	private WebCamTexture camTexture;
-	private Texture defaultBackground;
 
-	public RawImage bachground;
+	public RawImage background;
 	public AspectRatioFitter fit;
 	
 	public Detector detector
@@ -31,7 +30,6 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 	
 	void OnEnable()
 	{
-
 		StartCoroutine(SampleRoutine());
 	}
 	
@@ -43,15 +41,13 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 	{
 		while (enabled)
 		{
-			yield return new WaitForSeconds(1 / 20);
+			yield return new WaitForSeconds(1 / 5);
 			ProcessFrame();
 		}
 	}
 	
 	private void Start ()
-	{
-		defaultBackground = bachground.texture;
-		
+	{		
 		detector = GetComponent<Detector>();
 		
 		WebCamDevice[] devices = WebCamTexture.devices;
@@ -81,27 +77,25 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 		}
 
 		camTexture.Play();
-		bachground.texture = camTexture;
+		background.texture = camTexture;
 
 		camAvailable = true;
+		
+		Debug.Log("Front camera set");
 	}
 	
-	private void Update () {
+	private void Update () 
+	{
 		if (!camAvailable)
 		{
 			return;
 		}
 
 		float ration = (float) camTexture.width / (float) camTexture.height;
-
 		fit.aspectRatio = ration;
 
-		float scaleY = camTexture.videoVerticallyMirrored ? -1f : 1f;
-
-		bachground.rectTransform.localScale = new Vector3(1f, scaleY, 1f);
-
 		int orient = -camTexture.videoRotationAngle;
-		bachground.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
+		background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
 	}
 
 	/// <summary>

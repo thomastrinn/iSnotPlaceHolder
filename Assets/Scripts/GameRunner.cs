@@ -2,22 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameRunner : MonoBehaviour {
 
 	public UnityEngine.UI.Image imageComponent;
+	public AudioSource musicSource;
+	public AudioSource wrongAnswerSource;
+	public AudioClip wrongAnswerClip;
 
 	string[] emotions = {"joy", "fear", "disgust", "sadness", "anger", "surprise"};
 
 	// Use this for initialization
 	void Start () {
-		int nr = Random.Range(0,5);
-		changeImage(emotions[nr]);
+		generateQuestion();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void generateQuestion() {
+		int nr = Random.Range(0,6);
+		GameVariables.currentEmotion = emotions[nr];
+		changeImage(GameVariables.currentEmotion);
+		playSound(GameVariables.currentEmotion);
 	}
 
 	void changeImage(string emotion) {
@@ -28,4 +38,19 @@ public class GameRunner : MonoBehaviour {
 		Debug.Log(sprite);
 		imageComponent.sprite = sprite;
 	}
+
+	void playSound(string emotion) {
+		 AudioClip clip = Resources.Load<AudioClip>("Game/QuestionSounds/" + emotion + "1");
+		 Debug.Log(clip);
+		 musicSource.PlayOneShot(clip);
+	}
+
+	public void answer(string emotion) {
+		if (emotion == GameVariables.currentEmotion) {
+			SceneManager.LoadScene("JatekFelismeres", LoadSceneMode.Single);
+		} else {
+			wrongAnswerSource.PlayOneShot(wrongAnswerClip);
+		}
+	}
+
 }

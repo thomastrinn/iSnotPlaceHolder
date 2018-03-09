@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jatek.unity
     guid: 7681628e539a04ab2bc200b3a0ad75ee
+  - enabled: 1
+    path: Assets/Scenes/JatekFelismeres.unity
+    guid: 6854ce714c4984deb8de5d4ea6b2330a
   m_configObjects: {}
