@@ -42,7 +42,7 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 	{
 		while (enabled)
 		{
-			yield return new WaitForSeconds(1 / 20);
+			yield return new WaitForSeconds(1 / 5);
 			ProcessFrame();
 		}
 	}
