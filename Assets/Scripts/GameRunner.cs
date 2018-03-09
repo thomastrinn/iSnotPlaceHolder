@@ -6,18 +6,25 @@ using UnityEngine.UI;
 public class GameRunner : MonoBehaviour {
 
 	public UnityEngine.UI.Image imageComponent;
+	public AudioSource audioSource;
 
 	string[] emotions = {"joy", "fear", "disgust", "sadness", "anger", "surprise"};
 
 	// Use this for initialization
 	void Start () {
-		int nr = Random.Range(0,5);
-		changeImage(emotions[nr]);
+		generateQuestion();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void generateQuestion() {
+		int nr = Random.Range(0,5);
+		string emotion = emotions[nr];
+		changeImage(emotion);
+		playSound(emotion);
 	}
 
 	void changeImage(string emotion) {
@@ -28,4 +35,11 @@ public class GameRunner : MonoBehaviour {
 		Debug.Log(sprite);
 		imageComponent.sprite = sprite;
 	}
+
+	void playSound(string emotion) {
+		 AudioClip clip = Resources.Load<AudioClip>("Game/QuestionSounds/" + emotion + "1");
+		 Debug.Log(clip);
+		 audioSource.PlayOneShot(clip);
+	}
+
 }
