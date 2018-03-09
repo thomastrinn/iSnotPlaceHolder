@@ -26,4 +26,8 @@ public class MainMenu : MonoBehaviour {
 	public void OpenJatekScene() {
 		SceneManager.LoadScene("Jatek", LoadSceneMode.Single);
 	}
+
+	public void OpenMainMenuScene() {
+		SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+	}
 }
