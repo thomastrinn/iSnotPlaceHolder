@@ -47,10 +47,11 @@ public class PlayerEmotions : ImageResultsListener
 
     public override void onImageResults(Dictionary<int, Face> faces)
     {
-        Debug.Log("Got face results");
 
         foreach (KeyValuePair<int, Face> pair in faces)
         {
+            Debug.Log("Got face results");
+            
             int FaceId = pair.Key;  // The Face Unique Id.
             Face face = pair.Value;    // Instance of the face class containing emotions, and facial expression values.
 

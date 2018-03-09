@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b64f2f6b38845259d4608bde857110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bachground: {fileID: 977568356}
+  background: {fileID: 977568356}
   fit: {fileID: 977568353}
 --- !u!114 &719370960
 MonoBehaviour:
