@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 719370955}
   - component: {fileID: 719370960}
   - component: {fileID: 719370959}
+  - component: {fileID: 719370961}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -266,13 +267,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 719370954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58a41d2cccbef14fbba41225e469907, type: 3}
+  m_Script: {fileID: 11500000, guid: 45b64f2f6b38845259d4608bde857110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sampleRate: 20
-  isFrontFacing: 1
-  targetWidth: 640
-  targetHeight: 480
+  bachground: {fileID: 977568356}
+  fit: {fileID: 977568353}
 --- !u!114 &719370960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +287,24 @@ MonoBehaviour:
   discrete: 0
   emotions: -1
   expressions: 0
+--- !u!114 &719370961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719370954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88eb1be36b4424964b4fa6f36667d2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSmile: 0
+  currentInterocularDistance: 0
+  currentContempt: 0
+  currentValence: 0
+  currentAnger: 0
+  currentFear: 0
+  currentJoy: 0
 --- !u!1 &808014965
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,8 +316,6 @@ GameObject:
   - component: {fileID: 808014969}
   - component: {fileID: 808014968}
   - component: {fileID: 808014967}
-  - component: {fileID: 808014966}
-  - component: {fileID: 808014971}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -308,19 +323,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &808014966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 808014965}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45b64f2f6b38845259d4608bde857110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bachground: {fileID: 977568356}
-  fit: {fileID: 977568353}
 --- !u!114 &808014967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,23 +399,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &808014971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 808014965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88eb1be36b4424964b4fa6f36667d2ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSmile: 0
-  currentInterocularDistance: 0
-  currentContempt: 0
-  currentValence: 0
-  currentAnger: 0
-  currentFear: 0
 --- !u!1 &977568352
 GameObject:
   m_ObjectHideFlags: 0
