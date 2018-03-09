@@ -41,7 +41,6 @@ public class GameRunner : MonoBehaviour {
 
 	void playSound(string emotion) {
 		 AudioClip clip = Resources.Load<AudioClip>("Game/QuestionSounds/" + emotion + "1");
-		 Debug.Log(clip);
 		 musicSource.PlayOneShot(clip);
 	}
 
