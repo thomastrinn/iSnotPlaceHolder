@@ -27,7 +27,7 @@ public class CameraScript : MonoBehaviour
 		for (int i = 0; i < devices.Length; i++)
 		{
 			Debug.Log(devices[i].name);
-			if (!devices[i].isFrontFacing)
+			if (devices[i].isFrontFacing)
 			{
 				frontCamera = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
 				break;
