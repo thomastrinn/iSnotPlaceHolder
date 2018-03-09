@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
@@ -16,6 +16,6 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void OpenAlapScene() {
-		SceneManager.LoadScene("Alap", LoadSceneMode.single);
+		SceneManager.LoadScene("Alap", LoadSceneMode.Single);
 	}
 }
