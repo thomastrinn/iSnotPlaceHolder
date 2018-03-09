@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameRunner : MonoBehaviour {
 
@@ -21,10 +22,10 @@ public class GameRunner : MonoBehaviour {
 	}
 
 	void generateQuestion() {
-		int nr = Random.Range(0,5);
-		string emotion = emotions[nr];
-		changeImage(emotion);
-		playSound(emotion);
+		int nr = Random.Range(0,6);
+		GameVariables.currentEmotion = emotions[nr];
+		changeImage(GameVariables.currentEmotion);
+		playSound(GameVariables.currentEmotion);
 	}
 
 	void changeImage(string emotion) {
@@ -40,6 +41,14 @@ public class GameRunner : MonoBehaviour {
 		 AudioClip clip = Resources.Load<AudioClip>("Game/QuestionSounds/" + emotion + "1");
 		 Debug.Log(clip);
 		 audioSource.PlayOneShot(clip);
+	}
+
+	public void answer(string emotion) {
+		if (emotion == GameVariables.currentEmotion) {
+			SceneManager.LoadScene("JatekFelismeres", LoadSceneMode.Single);
+		} else {
+			Debug.Log("NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEM");
+		}
 	}
 
 }
