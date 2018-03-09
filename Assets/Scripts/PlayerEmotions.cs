@@ -6,14 +6,34 @@ using UnityEngine.UI;
 
 public class PlayerEmotions : ImageResultsListener
 {
-    public float currentSmile;
-    public float currentInterocularDistance;
-    public float currentContempt;
-    public float currentValence;
-    public float currentAnger;
-    public float currentFear;
-    public float currentJoy;
+    public Text JoyValue;
+    public Text FearValue;
+    public Text DisgustValue;
+    public Text SadnessValue;
+    public Text AngerValue;
+    public Text SurpriseValue;
+    public Text ContemptValue;
+
+    private float currentSurprise;
+    private float currentContempt;
+    private float currentAnger;
+    private float currentFear;
+    private float currentJoy;
+    private float currentDisgust;
+    private float currentSadness;
+    
     public FeaturePoint[] featurePointsList;
+
+    private void Start()
+    {
+        JoyValue.text = "Joy: " + (int) currentJoy + "/100";
+        FearValue.text = "Fear: " + (int) currentFear + "/100";;
+        ContemptValue.text = "Contempt: " + (int) currentContempt + "/100";
+        AngerValue.text = "Anger: " + (int) currentAnger + "/100";
+        SurpriseValue.text = "Surprise: " + (int) currentSurprise + "/100";
+        DisgustValue.text = "Disgust: " + (int) currentDisgust + "/100";
+        SadnessValue.text = "Sadness: " + (int) currentSadness + "/100";
+    }
 
     public override void onFaceFound(float timestamp, int faceId)
     {
@@ -34,26 +54,22 @@ public class PlayerEmotions : ImageResultsListener
             int FaceId = pair.Key;  // The Face Unique Id.
             Face face = pair.Value;    // Instance of the face class containing emotions, and facial expression values.
 
-            //Retrieve the Emotions Scores
-            face.Emotions.TryGetValue(Emotions.Contempt, out currentContempt);
-            face.Emotions.TryGetValue(Emotions.Valence, out currentValence);
-            face.Emotions.TryGetValue(Emotions.Anger, out currentAnger);
-            face.Emotions.TryGetValue(Emotions.Fear, out currentFear);
             face.Emotions.TryGetValue(Emotions.Joy, out currentJoy);
-
-            Debug.Log("Joy: " + currentJoy);
+            face.Emotions.TryGetValue(Emotions.Fear, out currentFear);
+            face.Emotions.TryGetValue(Emotions.Contempt, out currentContempt);
+            face.Emotions.TryGetValue(Emotions.Anger, out currentAnger);
+            face.Emotions.TryGetValue(Emotions.Surprise, out currentSurprise);
+            face.Emotions.TryGetValue(Emotions.Disgust, out currentDisgust);
+            face.Emotions.TryGetValue(Emotions.Sadness, out currentSadness);
             
-            //Retrieve the Smile Score
-            face.Expressions.TryGetValue(Expressions.Smile, out currentSmile);
 
-
-            //Retrieve the Interocular distance, the distance between two outer eye corners.
-            currentInterocularDistance = face.Measurements.interOcularDistance;
-
-
-            //Retrieve the coordinates of the facial landmarks (face feature points)
-            featurePointsList = face.FeaturePoints;
-
+            JoyValue.text = "Joy: " + (int) currentJoy + "/100";
+            FearValue.text = "Fear: " + (int) currentFear + "/100";;
+            ContemptValue.text = "Contempt: " + (int) currentContempt + "/100";
+            AngerValue.text = "Anger: " + (int) currentAnger + "/100";
+            SurpriseValue.text = "Surprise: " + (int) currentSurprise + "/100";
+            DisgustValue.text = "Disgust: " + (int) currentDisgust + "/100";
+            SadnessValue.text = "Sadness: " + (int) currentSadness + "/100";
         }
     }
 
