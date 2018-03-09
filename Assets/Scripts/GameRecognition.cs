@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameRecognition : MonoBehaviour {
 
+	public GameObject winText;
 	public UnityEngine.UI.Image imageComponent;
 	public Sprite joySprite;
 	public Sprite fearSprite;
@@ -12,9 +13,12 @@ public class GameRecognition : MonoBehaviour {
 	public Sprite sadnessSprite;
 	public Sprite angerSprite;
 	public Sprite surpriseSprite;
+	
 
 	// Use this for initialization
 	void Start () {
+		winText.SetActive(false);
+
 		switch(GameVariables.currentEmotion) {
 			case "joy":
 				imageComponent.sprite = joySprite;
@@ -39,6 +43,6 @@ public class GameRecognition : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
