@@ -5,7 +5,7 @@ using UnityEngine;
 public static class MoodLoader {
 
 	public static AudioClip getClip(string emotion) {
-		int nr = Random.Range(0,6);
+		int nr = Random.Range(1,6);
 		return Resources.Load<AudioClip>("Mood/" + emotion + "/" + emotion + nr);
 	}
 }

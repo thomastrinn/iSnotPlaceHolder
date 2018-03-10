@@ -21,8 +21,6 @@ public class HangulatKelto : ImageResultsListener {
 	private string biggestEmotion;
 	private float biggestEmotionValue;
 
-	private bool gotEmotion = false;
-
 	private void Start()
 	{
 		updateValues();
@@ -40,12 +38,12 @@ public class HangulatKelto : ImageResultsListener {
 
 	public override void onFaceLost(float timestamp, int faceId)
 	{
-		gotEmotion = false;
+
 	}
 
 	public override void onImageResults(Dictionary<int, Face> faces)
 	{
-		if (!gotEmotion) {
+		if (!soundSource.isPlaying) {
 			foreach (KeyValuePair<int, Face> pair in faces) {
 				int FaceId = pair.Key;  // The Face Unique Id.
 				Face face = pair.Value;    // Instance of the face class containing emotions, and facial expression values.
@@ -105,7 +103,6 @@ public class HangulatKelto : ImageResultsListener {
 		}
 
 		if (biggestEmotionValue > 70) {
-			gotEmotion = true;
 			AudioClip clip = MoodLoader.getClip(biggestEmotion);
 			soundSource.PlayOneShot(clip);
 		}
