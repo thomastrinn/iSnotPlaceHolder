@@ -94,6 +94,18 @@ public class CameraScript : MonoBehaviour, IDetectorInput
 		float ration = (float) camTexture.width / (float) camTexture.height;
 		fit.aspectRatio = ration;
 
+		switch (camTexture.videoRotationAngle)
+		{
+			case 90:
+			case 270:
+				background.rectTransform.localScale = new Vector3(1f, -1f, 1f);				
+				break;
+			case 0:
+			case 180:
+				background.rectTransform.localScale = new Vector3(-1f, 1f, 1f);
+				break;
+		}
+
 		int orient = -camTexture.videoRotationAngle;
 		background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
 	}
